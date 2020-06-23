@@ -19,6 +19,31 @@ export default {
     }
   },
   actions: {
+    API_DELETE_USER({ commit }, value) {
+      const url = 'http://localhost:3000/users/'+value+'/'
+      return axios
+          .delete(url)
+          .then(response => {
+            commit("SET_USERS_TO_STATE", response.data);
+            return response;
+          })
+          .catch(error => {
+            console.log(error);
+            return error;
+          });
+    },
+    API_POST_USER_INPUT({ commit }, formData) {
+      return axios
+        .post("http://localhost:3000/users", formData)
+        .then(response => {
+          commit("SET_USERS_TO_STATE", response.data);
+          return response;
+        })
+        .catch(error => {
+          console.log(error);
+          return error;
+        });
+    },
     GET_USERS_FROM_API({ commit }) {
       return axios("http://localhost:3000/users", {
         method: "GET"

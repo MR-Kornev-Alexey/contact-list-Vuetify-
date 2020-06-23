@@ -1,23 +1,28 @@
 <template>
   <div class="v-table" :users_data="USERS">
     <h1 class="mt-4 mb-4">Лист контактов</h1>
-    <v-btn href="input-new" class="mt-4 mb-4" text >
-      <span class="mr-2">Добавить новый контакт</span>
-      <v-icon>mdi-account-plus</v-icon>
-    </v-btn>
+    <inputPopUp />
     <div class="v-table__header mt-4">
-      <p class="d-flex justify-center text-center">Изменить</p>
-      <p class="d-flex justify-center text-center" @click="sortByName">
+      <p class="user_avatar">Аватар</p>
+      <p class="d-flex justify-center text-center  user_change">Изменить</p>
+
+      <p
+        class="d-flex justify-center text-center user_name"
+        @click="sortByName"
+      >
         Имя <v-icon> mdi-unfold-more-horizontal</v-icon>
       </p>
-      <p class="d-flex justify-center text-center" @click="sortByFamily">
-        Фамилия<v-icon> mdi-unfold-more-horizontal</v-icon>
+      <p class="d-flex justify-center text-center user_phone">
+        Телефон
       </p>
-      <p class="d-flex justify-center text-center" @click="sortByCompany">
-        Фирма <v-icon> mdi-unfold-more-horizontal</v-icon>
+      <p class="d-flex justify-center text-center user_email">
+        E-mail
       </p>
-      <p class="d-flex justify-center text-center" @click="sortByDate">
-        Дата регистрации <v-icon> mdi-unfold-more-horizontal</v-icon>
+      <p
+        class="d-flex justify-center text-center user_department"
+        @click="sortByDepartment"
+      >
+        Отдел<v-icon> mdi-unfold-more-horizontal</v-icon>
       </p>
     </div>
     <div class="v-table__body">
@@ -43,11 +48,13 @@
 
 <script>
 import vTableRow from "./v-table-row";
+import inputPopUp from "./input-popup";
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "v-table",
   components: {
-    vTableRow
+    vTableRow,
+    inputPopUp
   },
   props: {
     user_data: {
@@ -79,17 +86,11 @@ export default {
     pageClick(page) {
       this.pageNumber = page;
     },
-    sortByCompany() {
-      this.USERS.sort((a, b) => a.company.localeCompare(b.company));
-    },
-    sortByFamily() {
-      this.USERS.sort((a, b) => a.family.localeCompare(b.family));
+    sortByDepartment() {
+      this.USERS.sort((a, b) => a.department.localeCompare(b.department));
     },
     sortByName() {
       this.USERS.sort((a, b) => a.name.localeCompare(b.name));
-    },
-    sortByDate() {
-      this.USERS.sort((a, b) => a.time_create.localeCompare(b.time_create));
     }
   },
   mounted() {
@@ -100,21 +101,40 @@ export default {
 
 <style lang="scss">
 .v-table {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 .v-table__header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #aeaeae;
+  border-bottom: 2px solid #aeaeae;
 }
 .v-table__header p {
   display: flex;
   align-items: center;
-  flex-basis: 25%;
   text-align: left;
   cursor: pointer;
 }
+.user_avatar {
+  width: 50px;
+  img {
+    cursor: pointer;
+  }
+}
+.user_name {
+  width: 180px;
+}
+.user_change,
+.user_department {
+  width: 90px;
+}
+.user_phone {
+  width: 160px;
+}
+.user_email {
+  width: 240px;
+}
+
 .v-table__pagination {
   margin-top: 24px;
   display: flex;
