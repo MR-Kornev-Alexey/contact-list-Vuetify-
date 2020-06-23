@@ -10,9 +10,9 @@ export default {
   mutations: {
     SET_USER(state, payload) {
       state.user.isAuthenticated = true;
-      state.user.vid = payload;
+      state.user.uid = payload;
     }
-  },
+   },
   actions: {
     SIGN_UP({ commit }, payload) {
       firebase

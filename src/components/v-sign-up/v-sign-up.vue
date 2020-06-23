@@ -79,7 +79,7 @@ export default {
   watch: {
     isUserAuthenticated(val) {
       if (val === true) {
-        this.$router.push("/");
+        this.$router.push("/contacts");
       }
     }
   },
