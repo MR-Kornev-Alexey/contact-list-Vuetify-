@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Dejuan Maggio",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/m_kalibry/128.jpg",
-      "phone": "(554) 795-0589 x8744",
-      "email": "Loren_Schultz@hotmail.com",
-      "department": "Engineering"
-    },
-    {
       "id": 2,
       "name": "Curt Becker",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/quailandquasar/128.jpg",
@@ -799,14 +791,6 @@
       "phone": "(508) 054-3903 x2479",
       "email": "Joan.Buckridge5@gmail.com",
       "department": "CEO"
-    },
-    {
-      "name": "!Abba",
-      "phone": "89899888 888  888 ",
-      "email": "werwer@mail.ru",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/quailandquasar/128.jpg",
-      "department": "Zombi",
-      "id": 103
     }
   ]
 }

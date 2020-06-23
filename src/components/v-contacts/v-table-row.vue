@@ -4,11 +4,7 @@
       <img :src="row_data.avatar" alt="" />
     </v-avatar>
     <div class="user_change icons text-center justify-center mt-2">
-      <v-icon class="mr-2 icon-avatar align-content-center">
-        mdi-account-edit
-      </v-icon>
-      |
-      <v-icon class="ml-2 icon-avatar"  @click="deleteContact(row_data.id)"> mdi-account-remove </v-icon>
+      <vEditPopup :edit_data="row_data"/>
     </div>
 
     <div class="user_name mt-2">
@@ -23,12 +19,22 @@
     <div class="user_department mt-2">
       {{ row_data.department }}
     </div>
+    <div class="user_change ">
+      <vDeletePopup :row_data_del="row_data.id"/>
+    </div>
+
   </div>
 </template>
 
 <script>
+  import vDeletePopup from './v-delete-popup'
+  import vEditPopup from './v-edit-popup'
 export default {
   name: "v-table-row",
+  components: {
+    vDeletePopup,
+    vEditPopup
+  },
   props: {
     row_data: {
       type: Object,
@@ -37,16 +43,7 @@ export default {
       }
     }
   },
-  methods:{
-    deleteContact(value){
-      this.$store.dispatch("API_DELETE_USER", value)
-              .then(function(response) {
-                this.$router.push("/contacts");
-                return  response
-              })
-              .catch(err => err);
-         }
-  }
+
 };
 </script>
 

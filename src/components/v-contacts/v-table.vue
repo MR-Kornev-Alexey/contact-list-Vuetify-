@@ -1,7 +1,7 @@
 <template>
   <div class="v-table" :users_data="USERS">
     <h1 class="mt-4 mb-4">Лист контактов</h1>
-    <inputPopUp />
+    <vInputPopUp />
     <div class="v-table__header mt-4">
       <p class="user_avatar">Аватар</p>
       <p class="d-flex justify-center text-center  user_change">Изменить</p>
@@ -24,7 +24,8 @@
       >
         Отдел<v-icon> mdi-unfold-more-horizontal</v-icon>
       </p>
-    </div>
+      <p class="d-flex justify-center text-center  user_change">Удалить</p>
+     </div>
     <div class="v-table__body">
       <v-table-row
         v-for="row in paginationUsers"
@@ -48,13 +49,13 @@
 
 <script>
 import vTableRow from "./v-table-row";
-import inputPopUp from "./input-popup";
+import  vInputPopUp from "./v-input-popup";
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "v-table",
   components: {
     vTableRow,
-    inputPopUp
+    vInputPopUp
   },
   props: {
     user_data: {
@@ -127,6 +128,7 @@ export default {
 .user_change,
 .user_department {
   width: 90px;
+  text-align: center;
 }
 .user_phone {
   width: 160px;
