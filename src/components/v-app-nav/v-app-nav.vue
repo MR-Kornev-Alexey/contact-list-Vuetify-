@@ -10,7 +10,7 @@
         width="60"
       />
     </div>
-    <v-btn href="contacts" text v-if="isUserAuthentication">
+    <v-btn text v-if="isUserAuthentication">
       <span class="mr-2">Контакты</span>
       <v-icon>mdi-account-box-multiple </v-icon>
     </v-btn>
@@ -23,7 +23,7 @@
       <span class="mr-2">Вход</span>
       <v-icon> mdi-checkbox-marked-outline </v-icon>
     </v-btn>
-    <v-btn  href="signin" text v-if="isUserAuthentication">
+    <v-btn href="signin" text v-if="isUserAuthentication">
       <span class="mr-2">Выход</span>
       <v-icon>mdi-open-in-new</v-icon>
     </v-btn>
@@ -38,11 +38,11 @@ export default {
       checkAuthorization: false
     };
   },
-  computed:{
-    isUserAuthentication: function () {
-      return this.$store.getters.IS_USER_AUTHENTICATED
+  computed: {
+    isUserAuthentication: function() {
+      return this.$store.getters.IS_USER_AUTHENTICATED;
     }
-  },
+  }
 };
 </script>
 

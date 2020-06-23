@@ -2,9 +2,9 @@
   <v-app>
     <v-app-nav />
     <v-content>
-      <router-view/>
+      <router-view />
     </v-content>
-   </v-app>
+  </v-app>
 </template>
 
 <script>
