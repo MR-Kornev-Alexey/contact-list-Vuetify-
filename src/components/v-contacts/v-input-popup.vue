@@ -51,7 +51,12 @@
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn color="#00007a" text @click="dialog = false">Закрыть</v-btn>
-                        <v-btn color="deep-orange darken-4" text outlined type="submit" @click="dialog = false"
+                        <v-btn
+                                color="deep-orange darken-4"
+                                text
+                                outlined
+                                type="submit"
+                                @click="dialog = false"
                         >Загрузить
                         </v-btn>
                     </v-card-actions>
@@ -86,7 +91,7 @@
                     .then(function (response) {
                         this.$refs.close.dialog = false;
                         this.$router.push("/contacts");
-                        return response
+                        return response;
                     })
                     .catch(err => err);
             }

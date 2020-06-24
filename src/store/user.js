@@ -19,9 +19,8 @@ export default {
         }
     },
     actions: {
-
         API_POST_USER_EDIT({commit}, value) {
-            const url = 'http://localhost:3000/users/' + value.id + '/'
+            const url = "http://localhost:3000/users/" + value.id + "/";
             return axios
                 .put(url, value)
                 .then(response => {
@@ -35,7 +34,7 @@ export default {
         },
 
         API_DELETE_USER({commit}, value) {
-            const url = 'http://localhost:3000/users/' + value + '/'
+            const url = "http://localhost:3000/users/" + value + "/";
             return axios
                 .delete(url)
                 .then(response => {
@@ -61,8 +60,9 @@ export default {
         },
 
         API_SEARCH({commit}, value) {
-            const url = 'http://localhost:3000/users?q=' + value
-            return axios.get(url)
+            const url = "http://localhost:3000/users?q=" + value;
+            return axios
+                .get(url)
                 .then(response => {
                     commit("SET_USERS_TO_STATE", response.data);
                     return response;

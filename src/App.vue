@@ -1,23 +1,24 @@
 <template>
-  <v-app>
-    <v-app-nav />
-    <v-content>
-      <router-view />
-    </v-content>
-  </v-app>
+    <v-app>
+        <v-app-nav/>
+        <v-content>
+            <router-view/>
+        </v-content>
+    </v-app>
 </template>
 
 <script>
-import vAppNav from "./components/v-app-nav/v-app-nav";
-export default {
-  name: "App",
+    import vAppNav from "./components/v-app-nav/v-app-nav";
 
-  components: {
-    vAppNav
-  },
+    export default {
+        name: "App",
 
-  data: () => ({
-    //
-  })
-};
+        components: {
+            vAppNav
+        },
+
+        data: () => ({
+            //
+        })
+    };
 </script>

@@ -18,9 +18,7 @@
                         @keyup.enter="searchContact"
                 ></v-text-field>
             </div>
-
         </v-flex>
-
 
         <div class="v-table__header mt-4">
             <p class="user_avatar">Аватар</p>
@@ -108,18 +106,16 @@
         },
         methods: {
             searchContact: function () {
-                let value = this.search
+                let value = this.search;
                 this.$store
                     .dispatch("API_SEARCH", value)
                     .then(function (response) {
                         this.$router.push("/contacts");
-                        return response
+                        return response;
                     })
                     .catch(err => err);
             },
-            ...mapActions([
-                "GET_USERS_FROM_API"
-            ]),
+            ...mapActions(["GET_USERS_FROM_API"]),
             pageClick(page) {
                 this.pageNumber = page;
             },
@@ -137,7 +133,6 @@
 </script>
 
 <style lang="scss">
-
     .search {
         padding: 0;
         margin: 0;

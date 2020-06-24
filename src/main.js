@@ -7,12 +7,13 @@ import "roboto-fontface/css/roboto/roboto-fontface.css";
 import "@mdi/font/css/materialdesignicons.css";
 import firebaseConfig from "./config/firebase";
 import firebase from "firebase";
+
 firebase.initializeApp(firebaseConfig);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  vuetify,
-  render: h => h(App)
+    router,
+    store,
+    vuetify,
+    render: h => h(App)
 }).$mount("#app");

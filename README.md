@@ -10,6 +10,19 @@ npm install
 npm run serve
 ```
 
+####The json-server  must be installed globally.
+```
+npm --g json-server 
+```
+
+###The json-server start.
+Fake data_users.json is in the root folder.
+
+```
+npm run api-server
+```
+###Authorization occurs through firebase
+
 ### Compiles and minified for production
 ```
 npm run build

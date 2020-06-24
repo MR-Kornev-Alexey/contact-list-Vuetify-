@@ -22,13 +22,12 @@
         <div class="user_change ">
             <vDeletePopup :row_data_del="row_data.id"/>
         </div>
-
     </div>
 </template>
 
 <script>
-    import vDeletePopup from './v-delete-popup'
-    import vEditPopup from './v-edit-popup'
+    import vDeletePopup from "./v-delete-popup";
+    import vEditPopup from "./v-edit-popup";
 
     export default {
         name: "v-table-row",
@@ -43,8 +42,7 @@
                     return {};
                 }
             }
-        },
-
+        }
     };
 </script>
 

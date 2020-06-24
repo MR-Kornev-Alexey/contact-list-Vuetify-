@@ -11,8 +11,15 @@
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="#00007a" text @click="dialog = false">Закрыть</v-btn>
-                    <v-btn color="deep-orange darken-4" text @click="deleteContact(row_data_del); closeWindow()"
-                           outlined type="submit"
+                    <v-btn
+                            color="deep-orange darken-4"
+                            text
+                            @click="
+              deleteContact(row_data_del);
+              closeWindow();
+            "
+                            outlined
+                            type="submit"
                     >Удалить
                     </v-btn>
                 </v-card-actions>
@@ -40,14 +47,15 @@
         },
         methods: {
             closeWindow() {
-                return this.dialog = false
+                return (this.dialog = false);
             },
             deleteContact(value) {
-                alert(value)
-                this.$store.dispatch("API_DELETE_USER", value)
+                alert(value);
+                this.$store
+                    .dispatch("API_DELETE_USER", value)
                     .then(function (response) {
                         this.$router.push("/contacts");
-                        return response
+                        return response;
                     })
                     .catch(err => err);
             }
