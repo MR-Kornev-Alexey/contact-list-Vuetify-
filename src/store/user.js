@@ -38,8 +38,17 @@ export default {
             return axios
                 .delete(url)
                 .then(response => {
+                    if (response.status === 200) {
+                        return axios("http://localhost:3000/users", {
+                            method: "GET"
+                        })
+                    } else {
+                        throw new Error(`Server error, code: ${response.status}, status: ${response.statusText}`)
+                    }
+                })
+                .then(response => {
                     commit("SET_USERS_TO_STATE", response.data);
-                    return response;
+                    return null;
                 })
                 .catch(error => {
                     console.log(error);
@@ -50,8 +59,17 @@ export default {
             return axios
                 .post("http://localhost:3000/users", formData)
                 .then(response => {
+                    if (response.status === 200) {
+                        return axios("http://localhost:3000/users", {
+                            method: "GET"
+                        })
+                    } else {
+                        throw new Error(`Server error, code: ${response.status}, status: ${response.statusText}`)
+                    }
+                })
+                .then(response => {
                     commit("SET_USERS_TO_STATE", response.data);
-                    return response;
+                    return null;
                 })
                 .catch(error => {
                     console.log(error);

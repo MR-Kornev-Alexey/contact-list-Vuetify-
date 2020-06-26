@@ -2,14 +2,13 @@ module.exports = function () {
     const faker = require('faker');
     const _ = require('lodash');
     return {
-        users: _.times(100, function (n) {
+        trip: _.times(200, function (n) {
             return {
                 id: n + 1,
-                name: faker.name.findName(),
-                avatar: faker.image.avatar(),
-                phone: faker.phone.phoneNumber(),
-                email: faker.internet.email(),
-                department: _.sample(["Support", "Engineering", "Sales", "CEO"])
+                data: faker.date.recent(),
+                city: faker.address.city(),
+                number: faker.random.number(99),
+                distance: _.sample(["1200", "4500", "3490", "3453","1300", "4560", "2790", "2440", "8200", "1520", "7490", "4493","4570", "6666", "3710", "1840"])
             }
 
         })
